@@ -1,5 +1,5 @@
-nvidia_driver=450.57
-cuda=10.2
+nvidia_driver=455.28
+cuda=11.1
 
 echo "---- This is script to download nvidia-driver, cuda, cudnn and anaconda for centos7 install"
 echo "---- It will download nvidia-driver, cuda, anaconda directly and then download cudnn from google cloud"
@@ -17,7 +17,7 @@ fi
 if test -f "cuda.run"; then
     echo "---- cuda exists."
 else
-    wget -O cuda.run http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run
+    wget -O cuda.run wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run
     echo "---- cuda download finished"
 fi
 
