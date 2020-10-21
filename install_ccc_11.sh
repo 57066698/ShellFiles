@@ -5,16 +5,16 @@ sh cuda.run --silent --toolkit
 
 echo "---- install cudnn"
 tar -xzvf cudnn.tgz
-sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
-sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
-sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+sudo cp cuda/include/cudnn*.h /usr/local/cuda-11.1/include
+sudo cp cuda/lib64/libcudnn* /usr/local/cuda-11.1/lib64
+sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda-11.1/lib64/libcudnn*
 
 echo "---- install conda"
 bash anaconda.sh -b -p $HOME/anaconda
 echo "---- add cuda conda to path"
 cat <<EOT>> ~/.bashrc
-export PATH=/usr/local/cuda/bin:$HOME/anaconda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-11.1/bin:$HOME/anaconda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-11.1/lib64:$LD_LIBRARY_PATH
 EOT
 source ~/.bashrc
 echo "---- set conda source to tsinghua"
@@ -44,5 +44,5 @@ cat <<EOT>> ~/.pip/pip.conf
 trusted-host=mirrors.aliyun.com
 index-url=http://mirrors.aliyun.com/pypi/simple
 EOT
-echo "---------  init anaconda for bash"
+echo "--- init anaconda for bash"
 bash ~/anaconda/bin/conda init
